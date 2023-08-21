@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring MVC Photo Upload</title>
+</head>
+<body>
+<table>
+    <tr th:each="photo : ${photos}">
+        <td>
+            <img th:src="@{/image/{id}(id=${photo.id})}" alt="Image" width="200px"/>
+        </td>
+    </tr>
+</table>
+
+<h2>Upload a Photo</h2>
+<form th:action="@{/download}" method="post" enctype="multipart/form-data">
+    <input type="file" name="file"/>
+    <input type="submit" value="Upload"/>
+</form>
+</body>
+</html>
